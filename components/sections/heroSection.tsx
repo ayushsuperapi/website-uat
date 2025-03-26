@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { FadeInSection } from '../ui/fadeInSection';
 import { Button } from '@/components/ui/button';
 import { Section } from '@/components/ui/section';
@@ -11,7 +12,6 @@ export function HeroSection({
   subtitle = '45% lower costs.\nZero engineering effort.',
   description = 'SuperAPI is a plug-and-play API caching solution with automatic cache invalidation – built for dynamic APIs and fast-growing teams.',
   ctaText = 'Try Live Playground',
-  imageSrc = 'https://picsum.photos/id/237/200/100'
 }: HeroSectionProps): JSX.Element {
   const subtitleLines = subtitle.split('\n');
 
@@ -44,10 +44,12 @@ export function HeroSection({
         <FadeInSection className="w-full md:w-1/2" delay={300}>
           <div className="relative">
             <div className="rounded-xl border border-gray-800 overflow-hidden">
-              <img 
-                src={imageSrc} 
+              <Image 
+                src="/Dummy_img.jpg"
                 alt="SuperAPI Dashboard Preview" 
                 className="w-full"
+                width={100}
+                height={60}
               />
             </div>
           </div>

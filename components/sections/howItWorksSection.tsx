@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { FadeInSection } from '../ui/fadeInSection';
 import { Section } from '@/components/ui/section';
 import { Card } from '@/components/ui/card';
@@ -24,7 +25,6 @@ const defaultSteps: Step[] = [
 export function HowItWorksSection({
   title = "How it works",
   steps = defaultSteps,
-  imageSrc = "https://picsum.photos/id/237/200/100"
 }: HowItWorksSectionProps): JSX.Element {
   return (
     <Section>
@@ -32,10 +32,12 @@ export function HowItWorksSection({
         <FadeInSection>
           <div className="flex flex-col md:flex-row">
             <div className="w-full md:w-1/2 mb-10 md:mb-0">
-              <img 
-                src={imageSrc} 
+              <Image 
+                src="/Dummy_img.jpg"
                 alt="SuperAPI Dashboard" 
                 className="w-full rounded-lg"
+                width={100}
+                height={60}
               />
             </div>
             <div className="w-full md:w-1/2 md:pl-12">
