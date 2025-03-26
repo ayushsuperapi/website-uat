@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import type { ButtonProps } from '@/types/ui';
 import { JSX } from 'react';
 
@@ -25,20 +26,48 @@ export function Button({
   icon,
   isFullWidth = false,
   disabled = false,
+  href,
+  openInNewTab = false
 }: ButtonProps): JSX.Element {
+  const buttonClasses = `
+    ${variants[variant]} 
+    ${sizes[size]} 
+    ${isFullWidth ? 'w-full' : 'inline-flex'} 
+    font-medium rounded-full transition-colors flex items-center justify-center gap-2
+    ${disabled ? 'opacity-60 cursor-not-allowed' : ''}
+    ${className}
+  `;
+
+  if (href) {
+    if (openInNewTab) {
+      return (
+        <a 
+          href={href} 
+          className={buttonClasses}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: 'inline-flex' }} 
+        >
+          {icon && <span className="inline-block">{icon}</span>}
+          {children}
+        </a>
+      );
+    }
+    
+    return (
+      <Link href={href} className={buttonClasses} style={{ display: 'inline-flex' }}>
+        {icon && <span className="inline-block">{icon}</span>}
+        {children}
+      </Link>
+    );
+  }
+
   return (
     <button
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`
-        ${variants[variant]} 
-        ${sizes[size]} 
-        ${isFullWidth ? 'w-full' : ''} 
-        font-medium rounded-full transition-colors flex items-center justify-center gap-2 cursor-pointer
-        ${disabled ? 'opacity-60 cursor-not-allowed' : ''}
-        ${className}
-      `}
+      className={buttonClasses}
     >
       {icon && <span className="inline-block">{icon}</span>}
       {children}

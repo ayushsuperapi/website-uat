@@ -34,6 +34,8 @@ export function HeroSection({
             variant="primary" 
             size="lg"
             icon="🎮"
+            href="https://playground.trysuperapi.com" 
+            openInNewTab={true}
           >
             {ctaText}
           </Button>

@@ -9,16 +9,18 @@ export interface FadeInSectionProps {
 }
 
 export interface ButtonProps {
-  children: ReactNode;
-  onClick?: () => void;
-  type?: 'button' | 'submit' | 'reset';
-  variant?: 'primary' | 'secondary' | 'outline';
-  size?: 'sm' | 'md' | 'lg';
-  className?: string;
-  icon?: ReactNode;
-  isFullWidth?: boolean;
-  disabled?: boolean;
-}
+    children: ReactNode;
+    onClick?: () => void;
+    type?: 'button' | 'submit' | 'reset';
+    variant?: 'primary' | 'secondary' | 'outline';
+    size?: 'sm' | 'md' | 'lg';
+    className?: string;
+    icon?: ReactNode;
+    isFullWidth?: boolean;
+    disabled?: boolean;
+    href?: string;
+    openInNewTab?: boolean;
+  }
 
 export interface CardProps {
   children: ReactNode;
