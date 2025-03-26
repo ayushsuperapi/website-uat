@@ -1,0 +1,37 @@
+'use client';
+
+import { FadeInSection } from '../ui/fadeInSection';
+import { Section } from '@/components/ui/section';
+import { Card } from '@/components/ui/card';
+import type { PerfectForYouSectionProps, SiteAttribute } from '@/types/sections';
+import { JSX } from 'react';
+
+const defaultAttributes: SiteAttribute[] = [
+  { text: "You're a fast-growing company" },
+  { text: "You're handling 50K+ API requests/hour" },
+  { text: "You've got dynamic APIs and growing user bases" },
+  { text: "You care about user experience" }
+];
+
+export function PerfectForYouSection({
+  title = "SuperAPI is perfect for you.",
+  attributes = defaultAttributes
+}: PerfectForYouSectionProps): JSX.Element {
+  return (
+    <Section>
+      <Card>
+        <FadeInSection>
+          <h2 className="text-4xl font-bold mb-10">{title}</h2>
+          
+          <div className="space-y-4 mb-4">
+            {attributes.map((attribute, index) => (
+              <div key={index} className="bg-gray-800 px-4 py-2 rounded">
+                <p className="font-mono">{attribute.text}</p>
+              </div>
+            ))}
+          </div>
+        </FadeInSection>
+      </Card>
+    </Section>
+  );
+}
