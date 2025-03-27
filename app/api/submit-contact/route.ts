@@ -3,7 +3,6 @@ import { google } from 'googleapis';
 
 interface ContactFormData {
   email: string;
-  company: string;
   timestamp: string;
 }
 
@@ -11,9 +10,9 @@ export async function POST(request: Request) {
   try {
     const body: ContactFormData = await request.json();
     
-    if (!body.email || !body.company) {
+    if (!body.email) {
       return NextResponse.json(
-        { error: 'Email and company are required' },
+        { error: 'Email is required' },
         { status: 400 }
       );
     }
@@ -32,7 +31,7 @@ export async function POST(request: Request) {
     const range = 'Sheet1!A:C'; 
     
     const values = [
-      [body.email, body.company, body.timestamp]
+      [body.email, body.timestamp]
     ];
 
     const response = await sheets.spreadsheets.values.append({

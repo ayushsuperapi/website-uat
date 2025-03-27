@@ -33,11 +33,12 @@ export function Button({
     ${variants[variant]} 
     ${sizes[size]} 
     ${isFullWidth ? 'w-full' : 'inline-flex'} 
-    font-medium rounded-full transition-colors flex items-center justify-center gap-2
-    ${disabled ? 'opacity-60 cursor-not-allowed' : ''}
+    font-medium transition-colors flex items-center justify-center gap-2
+    ${disabled ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer'}
     ${className}
   `;
 
+  // If href is provided, render as a link
   if (href) {
     if (openInNewTab) {
       return (
@@ -46,7 +47,7 @@ export function Button({
           className={buttonClasses}
           target="_blank"
           rel="noopener noreferrer"
-          style={{ display: 'inline-flex' }} 
+          style={{ display: 'inline-flex' }} // Ensure correct display
         >
           {icon && <span className="inline-block">{icon}</span>}
           {children}
@@ -62,6 +63,7 @@ export function Button({
     );
   }
 
+  // Otherwise, render as a button
   return (
     <button
       type={type}

@@ -9,7 +9,6 @@ interface ContactFormProps {
 
 export function ContactForm({ onClose }: ContactFormProps) {
   const [email, setEmail] = useState('');
-  const [company, setCompany] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
@@ -17,8 +16,8 @@ export function ContactForm({ onClose }: ContactFormProps) {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     
-    if (!email || !company) {
-      setError('Please fill in all fields');
+    if (!email) {
+      setError('Please fill in your email');
       return;
     }
     
@@ -38,7 +37,6 @@ export function ContactForm({ onClose }: ContactFormProps) {
         },
         body: JSON.stringify({
           email,
-          company,
           timestamp: new Date().toISOString(),
         }),
       });
@@ -50,7 +48,6 @@ export function ContactForm({ onClose }: ContactFormProps) {
       setSuccess(true);
       
       setEmail('');
-      setCompany('');
       
       setTimeout(() => {
         onClose();
@@ -80,7 +77,7 @@ export function ContactForm({ onClose }: ContactFormProps) {
       )}
       
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
+        <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
           Email Address
         </label>
         <input
@@ -90,22 +87,6 @@ export function ContactForm({ onClose }: ContactFormProps) {
           onChange={(e) => setEmail(e.target.value)}
           className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
           placeholder="you@example.com"
-          disabled={isSubmitting}
-          required
-        />
-      </div>
-      
-      <div>
-        <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-1">
-          Company Name
-        </label>
-        <input
-          type="text"
-          id="company"
-          value={company}
-          onChange={(e) => setCompany(e.target.value)}
-          className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
-          placeholder="Your Company"
           disabled={isSubmitting}
           required
         />

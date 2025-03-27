@@ -45,7 +45,7 @@ export function Header(): JSX.Element {
       <Dialog 
         isOpen={isDialogOpen} 
         onClose={closeDialog}
-        title="Contact Us"
+        title="Talk to us"
       >
         <ContactForm onClose={closeDialog} />
       </Dialog>

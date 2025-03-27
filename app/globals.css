@@ -2,7 +2,7 @@
 
 :root {
   --foreground-rgb: 255, 255, 255;
-  --background-rgb: 0, 0, 0;
+  --background-rgb: 30, 30, 30, 1;
 }
 
 body {

@@ -49,7 +49,7 @@ export function HowItWorksSection({
                     <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">
                       {step.number}
                     </div>
-                    <p className="text-lg">
+                    <p className="text-lg font-mono">
                       {step.description}
                     </p>
                   </div>

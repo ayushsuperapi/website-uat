@@ -1,10 +1,12 @@
 'use client';
 
+import { JSX, useState } from 'react';
 import { FadeInSection } from '../ui/fadeInSection';
 import { Section } from '@/components/ui/section';
 import { Button } from '@/components/ui/button';
 import type { ComparisonSectionProps, ComparisonItem } from '@/types/sections';
-import { JSX } from 'react';
+import { Dialog } from '../ui/dialog';
+import { ContactForm } from '../contactForm';
 
 const defaultOldWayItems: ComparisonItem[] = [
   { text: "Months of refactoring & query optimization" },
@@ -27,6 +29,15 @@ export function ComparisonSection({
   newWayItems = defaultNewWayItems,
   ctaText = "Try Live Playground"
 }: ComparisonSectionProps): JSX.Element {
+     const [isDialogOpen, setIsDialogOpen] = useState(false);
+    
+      const openDialog = () => {
+        setIsDialogOpen(true);
+      };
+    
+      const closeDialog = () => {
+        setIsDialogOpen(false);
+      };
   return (
     <Section>
       <div className="flex flex-col md:flex-row gap-20 justify-center max-w-5xl mx-auto">
@@ -57,18 +68,27 @@ export function ComparisonSection({
             ))}
           </div>
           
-          <Button 
-            className="mt-10"
-            variant="primary" 
+          <div className='flex gap-4 mt-6'>
+          <Button onClick={openDialog} size="md" variant="primary">
+              Talk to us
+            </Button>
+            <Button 
+            variant="secondary" 
             size="lg"
-            icon="🎮"
             href="https://playground.trysuperapi.com" 
             openInNewTab={true}
           >
             {ctaText}
           </Button>
+
+          </div>
+          
         </FadeInSection>
       </div>
+
+      <Dialog isOpen={isDialogOpen} onClose={closeDialog} title="Contact Us">
+        <ContactForm onClose={closeDialog} />
+      </Dialog>
     </Section>
   );
 }

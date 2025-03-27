@@ -23,10 +23,12 @@ export function PerfectForYouSection({
         <FadeInSection>
           <h2 className="text-4xl font-bold mb-10">{title}</h2>
           
-          <div className="space-y-4 mb-4">
+          <div className="space-y-2 mb-4">
             {attributes.map((attribute, index) => (
-              <div key={index} className="bg-gray-800 px-4 py-2 rounded">
-                <p className="font-mono">{attribute.text}</p>
+              <div key={index} className="flex mb-2">
+                <div className="inline-block bg-gray-800 px-4 py-1 rounded">
+                  <p className="font-mono">{attribute.text}</p>
+                </div>
               </div>
             ))}
           </div>
