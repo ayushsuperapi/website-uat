@@ -27,7 +27,7 @@ export function PerfectForYouSection({
             {attributes.map((attribute, index) => (
               <div key={index} className="flex mb-2">
                 <div className="inline-block bg-gray-800 px-4 py-1 rounded">
-                  <p className="font-mono">{attribute.text}</p>
+                  <p>{attribute.text}</p>
                 </div>
               </div>
             ))}

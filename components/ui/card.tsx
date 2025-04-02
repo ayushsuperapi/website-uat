@@ -6,7 +6,7 @@ export function Card({
   className = ''
 }: CardProps): JSX.Element {
   return (
-    <div className={`border border-gray-800 rounded-xl p-10 ${className}`}>
+    <div className={`border border-[#3a3a3a] rounded-xl p-10 ${className}`}>
       {children}
     </div>
   );

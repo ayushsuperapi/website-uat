@@ -32,7 +32,7 @@ export function HeroSection({
         <FadeInSection className="w-full md:w-1/2 mb-10 md:mb-0">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">{title}</h1>
           {subtitleLines.map((line, index) => (
-            <h2 key={index} className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 key={index} className="text-3xl md:text-4xl font-bold mb-6">
               {line}
             </h2>
           ))}
@@ -52,7 +52,7 @@ export function HeroSection({
           </div>
         </FadeInSection>
 
-        <FadeInSection className="w-full md:w-1/2" delay={300}>
+        <FadeInSection className="w-full md:w-1/2 hidden md:block" delay={300}>
           <div className="relative">
             <div className="rounded-xl border border-gray-800 overflow-hidden">
               <Image
@@ -67,8 +67,8 @@ export function HeroSection({
         </FadeInSection>
       </div>
       <FadeInSection>
-        <div className="mt-8 flex items-center gap-2">
-          <Image src="/yc_logo.png" alt="YC Icon" width={35} height={35} />
+        <div className="mt-4 flex items-center gap-2">
+          <Image src="/yc_logo.png" alt="YC Icon" width={25} height={25} />
           <p className="text-white-400">Backed by Y Combinator</p>
         </div>
       </FadeInSection>

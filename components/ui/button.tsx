@@ -5,15 +5,15 @@ import type { ButtonProps } from '@/types/ui';
 import { JSX } from 'react';
 
 const variants = {
-  primary: 'bg-blue-600 hover:bg-blue-700 text-white',
-  secondary: 'bg-gray-600 hover:bg-gray-700 text-white',
+  primary: 'bg-[#2563EB] hover:bg-blue-700 text-white',
+  secondary: 'bg-[#3A3A3A] hover:bg-[#505050] text-white',
   outline: 'bg-transparent border border-blue-600 text-blue-600 hover:bg-blue-600/10'
 };
 
 const sizes = {
   sm: 'px-4 py-1.5 text-sm',
   md: 'px-6 py-2',
-  lg: 'px-8 py-3 text-lg'
+  lg: 'px-8 py-2 text-lg'
 };
 
 export function Button({
@@ -38,7 +38,6 @@ export function Button({
     ${className}
   `;
 
-  // If href is provided, render as a link
   if (href) {
     if (openInNewTab) {
       return (
@@ -47,7 +46,7 @@ export function Button({
           className={buttonClasses}
           target="_blank"
           rel="noopener noreferrer"
-          style={{ display: 'inline-flex' }} // Ensure correct display
+          style={{ display: 'inline-flex' }} 
         >
           {icon && <span className="inline-block">{icon}</span>}
           {children}
@@ -63,7 +62,6 @@ export function Button({
     );
   }
 
-  // Otherwise, render as a button
   return (
     <button
       type={type}

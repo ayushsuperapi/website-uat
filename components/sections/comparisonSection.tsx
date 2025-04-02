@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import type { ComparisonSectionProps, ComparisonItem } from '@/types/sections';
 import { Dialog } from '../ui/dialog';
 import { ContactForm } from '../contactForm';
+import { Card } from '../ui/card';
 
 const defaultOldWayItems: ComparisonItem[] = [
   { text: "Months of refactoring & query optimization" },
@@ -40,16 +41,16 @@ export function ComparisonSection({
       };
   return (
     <Section>
-      <div className="flex flex-col md:flex-row gap-20 justify-center max-w-5xl mx-auto">
+        <Card>
+      <div className="flex flex-col gap-12 md:gap-0 md:flex-row">
         <FadeInSection className="w-full md:w-1/2">
           <h3 className="text-xl text-gray-400 mb-4 tracking-wider">THE OLD WAY</h3>
-          <h2 className="text-4xl font-bold mb-8">{oldWayTitle}</h2>
+          <h2 className="text-3xl font-bold mb-8">{oldWayTitle}</h2>
           
           <div className="space-y-6">
             {oldWayItems.map((item, index) => (
               <div key={index} className="flex gap-3">
-                <span className="text-xl text-gray-400">❓</span>
-                <p className="text-center">{item.text}</p>
+                <li>{item.text}</li>
               </div>
             ))}
           </div>
@@ -57,13 +58,12 @@ export function ComparisonSection({
         
         <FadeInSection className="w-full md:w-1/2" delay={200}>
           <h3 className="text-xl text-blue-500 mb-4 tracking-wider">THE NEW WAY</h3>
-          <h2 className="text-4xl font-bold mb-8">{newWayTitle}</h2>
+          <h2 className="text-3xl font-bold mb-8">{newWayTitle}</h2>
           
           <div className="space-y-6">
             {newWayItems.map((item, index) => (
               <div key={index} className="flex gap-3">
-                <span className="text-xl text-blue-500">💙</span>
-                <p className="text-center">{item.text}</p>
+                <li>{item.text}</li>
               </div>
             ))}
           </div>
@@ -89,6 +89,7 @@ export function ComparisonSection({
       <Dialog isOpen={isDialogOpen} onClose={closeDialog} title="Contact Us">
         <ContactForm onClose={closeDialog} />
       </Dialog>
+      </Card>
     </Section>
   );
 }

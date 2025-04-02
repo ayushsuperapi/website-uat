@@ -9,15 +9,15 @@ import { JSX } from 'react';
 
 const defaultSteps: Step[] = [
   {
-    number: "1",
+    number: "1.",
     description: "Connect your API. Plug SuperAPI in front of existing REST or GraphQL APIs."
   },
   {
-    number: "2",
+    number: "2.",
     description: "Automatic caching and invalidation. Fresh data always, no manual rules."
   },
   {
-    number: "3",
+    number: "3.",
     description: "Deploy anywhere, in your cloud or regionally."
   }
 ];
@@ -46,10 +46,10 @@ export function HowItWorksSection({
               <div className="space-y-8">
                 {steps.map((step, index) => (
                   <div key={index} className="flex gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">
+                    <div className="text-white font-bold">
                       {step.number}
                     </div>
-                    <p className="text-lg font-mono">
+                    <p className="text-lg">
                       {step.description}
                     </p>
                   </div>

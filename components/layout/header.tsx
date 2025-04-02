@@ -26,8 +26,8 @@ export function Header(): JSX.Element {
             <Image 
               src="/superapilogo.png" 
               alt="SuperAPI Logo" 
-              width={32} 
-              height={32} 
+              width={25} 
+              height={25} 
               priority
             />
             <div className="text-2xl font-bold">SuperAPI</div>

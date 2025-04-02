@@ -72,35 +72,28 @@ export function ContactForm({ onClose }: ContactFormProps) {
       
       {success && (
         <div className="p-3 bg-green-900/50 border border-green-700 rounded-lg text-sm text-green-200">
-          Thank you! Your information has been submitted.
+          Thank you! Your information has been submitted. We will reach out to you soon.
         </div>
       )}
       
       <div>
         <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-          Email Address
+          Company Email
         </label>
         <input
           type="email"
           id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+          className="w-full px-4 py-2 border border-[#3A3A3A] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3A3A3A] text-white"
           placeholder="you@example.com"
           disabled={isSubmitting}
           required
         />
+
       </div>
       
       <div className="flex gap-3 justify-end mt-6">
-        <Button
-          type="button"
-          variant="outline"
-          onClick={onClose}
-          disabled={isSubmitting}
-        >
-          Cancel
-        </Button>
         <Button
           type="submit"
           variant="primary"
