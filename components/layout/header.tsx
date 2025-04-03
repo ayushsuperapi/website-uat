@@ -20,7 +20,7 @@ export function Header(): JSX.Element {
 
   return (
     <>
-      <header className="py-6">
+      <header className="py-6 sticky top-0 z-50 bg-[#1E1E1E]">
         <Container className="flex justify-between items-center">
           <div className="flex items-center gap-2">
             <Image 
