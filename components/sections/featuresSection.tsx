@@ -54,7 +54,7 @@ export function FeaturesSection({
         {features.map((feature, index) => (
           <FadeInSection key={index} delay={index * 100} triggerOnce={false}>
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="flex items-center justify-center mx-auto mb-6">
               {renderIcon(feature.icon)}
               </div>
               <h3 className="text-2xl font-bold mb-2">{feature.title}</h3>

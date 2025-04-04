@@ -37,7 +37,7 @@ export function HeroSection({
             </h2>
           ))}
           <p className="text-xl mb-10">{description}</p>
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 mt-10">
             <Button onClick={openDialog} size="md" variant="primary">
               Talk to us
             </Button>

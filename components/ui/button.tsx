@@ -5,9 +5,9 @@ import type { ButtonProps } from '@/types/ui';
 import { JSX } from 'react';
 
 const variants = {
-  primary: 'bg-[#2563EB] hover:bg-blue-700 text-white',
-  secondary: 'bg-[#3A3A3A] hover:bg-[#505050] text-white',
-  outline: 'bg-transparent border border-blue-600 text-blue-600 hover:bg-blue-600/10'
+  primary: 'bg-[#2563EB] hover:bg-blue-700 rounded-sm text-white',
+  secondary: 'border border-[#D1D5DB] hover:bg-[#252525] rounded-sm text-white',
+  outline: 'bg-transparent border border-blue-600 rounded-sm text-blue-600 hover:bg-blue-600/10'
 };
 
 const sizes = {

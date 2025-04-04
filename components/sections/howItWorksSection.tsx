@@ -46,7 +46,7 @@ export function HowItWorksSection({
               <div className="space-y-8">
                 {steps.map((step, index) => (
                   <div key={index} className="flex gap-4">
-                    <div className="text-white font-bold">
+                    <div className="text-white text-lg">
                       {step.number}
                     </div>
                     <p className="text-lg">

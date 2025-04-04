@@ -1,6 +1,6 @@
 'use client';
 
-import { JSX, useState } from 'react';
+import { JSX, useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
@@ -9,6 +9,23 @@ import { ContactForm } from '../contactForm';
 
 export function Header(): JSX.Element {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const openDialog = () => {
     setIsDialogOpen(true);
@@ -20,7 +37,7 @@ export function Header(): JSX.Element {
 
   return (
     <>
-      <header className="py-6 sticky top-0 z-50 bg-[#1E1E1E]">
+      <header className={`py-6 sticky top-0 z-50 bg-[#1E1E1E] ${isScrolled ? 'border-b border-[#333333]' : ''}`}>
         <Container className="flex justify-between items-center">
           <div className="flex items-center gap-2">
             <Image 

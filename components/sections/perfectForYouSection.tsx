@@ -21,7 +21,7 @@ export function PerfectForYouSection({
     <Section>
       <Card>
         <FadeInSection>
-          <h2 className="text-4xl font-bold mb-10">{title}</h2>
+          <h2 className="text-3xl font-bold mb-10">{title}</h2>
           
           <div className="space-y-2 mb-4">
             {attributes.map((attribute, index) => (

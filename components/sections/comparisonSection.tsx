@@ -30,66 +30,66 @@ export function ComparisonSection({
   newWayItems = defaultNewWayItems,
   ctaText = "Try Live Playground"
 }: ComparisonSectionProps): JSX.Element {
-     const [isDialogOpen, setIsDialogOpen] = useState(false);
-    
-      const openDialog = () => {
-        setIsDialogOpen(true);
-      };
-    
-      const closeDialog = () => {
-        setIsDialogOpen(false);
-      };
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  
+  const openDialog = () => {
+    setIsDialogOpen(true);
+  };
+  
+  const closeDialog = () => {
+    setIsDialogOpen(false);
+  };
+
   return (
     <Section>
-        <Card>
-      <div className="flex flex-col gap-12 md:gap-0 md:flex-row">
-        <FadeInSection className="w-full md:w-1/2">
-          <h3 className="text-xl text-gray-400 mb-4 tracking-wider">THE OLD WAY</h3>
-          <h2 className="text-3xl font-bold mb-8">{oldWayTitle}</h2>
-          
-          <div className="space-y-6">
+      <div className="flex flex-col gap-6 md:flex-row md:gap-8">
+        <Card className="w-full md:w-1/2 p-8 border">
+          <FadeInSection>
+            <h2 className="text-2xl font-bold mb-8">{oldWayTitle}</h2>
+            
+            <div className="space-y-4">
             {oldWayItems.map((item, index) => (
               <div key={index} className="flex gap-3">
                 <li>{item.text}</li>
               </div>
             ))}
           </div>
-        </FadeInSection>
+          </FadeInSection>
+        </Card>
         
-        <FadeInSection className="w-full md:w-1/2" delay={200}>
-          <h3 className="text-xl text-blue-500 mb-4 tracking-wider">THE NEW WAY</h3>
-          <h2 className="text-3xl font-bold mb-8">{newWayTitle}</h2>
+        <Card className="w-full md:w-1/2 p-8 border border-[#2563EB] relative overflow-hidden">
+          <div className="absolute inset-0 rounded-lg pointer-events-none"></div>
           
-          <div className="space-y-6">
+          <FadeInSection delay={200}>
+            <h2 className="text-2xl font-bold mb-8">{newWayTitle}</h2>
+            
+            <div className="space-y-4">
             {newWayItems.map((item, index) => (
               <div key={index} className="flex gap-3">
                 <li>{item.text}</li>
               </div>
             ))}
           </div>
-          
-          <div className='flex gap-4 mt-6'>
-          <Button onClick={openDialog} size="md" variant="primary">
-              Talk to us
-            </Button>
-            <Button 
-            variant="secondary" 
-            size="lg"
-            href="https://playground.trysuperapi.com" 
-            openInNewTab={true}
-          >
-            {ctaText}
-          </Button>
-
-          </div>
-          
-        </FadeInSection>
+            
+            <div className="flex flex-col sm:flex-row gap-4 mt-10">
+              <Button onClick={openDialog} variant="primary">
+                Talk to us
+              </Button>
+              <Button 
+                variant="secondary" 
+                href="https://playground.trysuperapi.com" 
+                openInNewTab={true}
+              >
+                {ctaText}
+              </Button>
+            </div>
+          </FadeInSection>
+        </Card>
       </div>
 
       <Dialog isOpen={isDialogOpen} onClose={closeDialog} title="Contact Us">
         <ContactForm onClose={closeDialog} />
       </Dialog>
-      </Card>
     </Section>
   );
 }
