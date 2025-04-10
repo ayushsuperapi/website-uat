@@ -41,13 +41,23 @@ export function Header(): JSX.Element {
         <Container className="flex justify-between items-center">
           <div className="flex items-center gap-2">
             <Image 
-              src="/superapilogo.png" 
+              src="/website_logo.svg" 
               alt="SuperAPI Logo" 
-              width={25} 
-              height={25} 
+              width={180} 
+              height={180} 
               priority
             />
-            <div className="text-2xl font-bold">SuperAPI</div>
+            <nav className="ml-4">
+              <a 
+                href="https://platform.superapi.cloud/docs" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white text-lg hover:text-gray-300 transition-colors relative group"
+              >
+                Docs
+                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white group-hover:w-full transition-all duration-300"></span>
+              </a>
+            </nav>
           </div>
           <Button 
             onClick={openDialog}
