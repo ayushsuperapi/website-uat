@@ -1,5 +1,3 @@
-import { Header } from '@/components/layout/header';
-import { Footer } from '@/components/layout/footer';
 import { HeroSection } from '@/components/sections/heroSection';
 import { FeaturesSection } from '@/components/sections/featuresSection';
 import { HowItWorksSection } from '@/components/sections/howItWorksSection';
@@ -10,7 +8,6 @@ import { JSX } from 'react';
 export default function Home(): JSX.Element {
   return (
     <>
-      <Header />
       <main>
         <HeroSection />
         <FeaturesSection />
@@ -18,7 +15,6 @@ export default function Home(): JSX.Element {
         <PerfectForYouSection />
         <ComparisonSection />
       </main>
-      <Footer />
     </>
   );
 }

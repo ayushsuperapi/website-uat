@@ -8,7 +8,7 @@ export function Section({
   id
 }: SectionProps): JSX.Element {
   return (
-    <section id={id} className={`py-20 ${className}`}>
+    <section id={id} className={`py-22 ${className}`}>
       <Container>
         {children}
       </Container>
