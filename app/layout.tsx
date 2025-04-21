@@ -25,6 +25,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const gaId = process.env.GA_ID;
+
+  if (!gaId) {
+    console.warn('Google Analytics ID is not defined in environment variables');
+  }
+
   return (
     <html lang="en">
       <body
@@ -34,7 +40,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
       </body>
-      <GoogleAnalytics gaId="G-XYZ" />
+      {gaId && <GoogleAnalytics gaId={gaId} />}
     </html>
   );
 }
