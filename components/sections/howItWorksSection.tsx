@@ -34,7 +34,7 @@ export function HowItWorksSection({
     <Section>
       <Card>
         <FadeInSection>
-          <div className="flex flex-col md:flex-row">
+          <div className="flex flex-col md:flex-row items-center">
             <div className="w-full md:w-1/2 mb-10 md:mb-0">
               <Image 
                 src="/img.png"
@@ -45,7 +45,7 @@ export function HowItWorksSection({
                 priority
               />
             </div>
-            <div className="w-full md:w-1/2 md:pl-12">
+            <div className="w-full md:w-1/2 md:pl-12 flex flex-col justify-center">
               <h2 className="text-4xl font-bold mb-10">{title}</h2>
               
               <div className="space-y-8">
