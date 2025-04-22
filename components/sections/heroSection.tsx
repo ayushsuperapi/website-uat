@@ -50,11 +50,12 @@ export function HeroSection({
           <div className="relative">
             <div className="rounded-xl border border-gray-800 overflow-hidden">
               <Image
-                src="/Dummy_img.jpg"
+                src="/hero.png"
                 alt="SuperAPI Dashboard Preview"
                 className="w-full"
-                width={100}
-                height={60}
+                width={720}
+                height={480}
+                priority
               />
             </div>
           </div>

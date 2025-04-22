@@ -37,11 +37,12 @@ export function HowItWorksSection({
           <div className="flex flex-col md:flex-row">
             <div className="w-full md:w-1/2 mb-10 md:mb-0">
               <Image 
-                src="/Dummy_img.jpg"
+                src="/img.png"
                 alt="SuperAPI Dashboard" 
                 className="w-full rounded-lg"
-                width={100}
-                height={60}
+                width={720}
+                height={540}
+                priority
               />
             </div>
             <div className="w-full md:w-1/2 md:pl-12">
