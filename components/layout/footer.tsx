@@ -8,7 +8,7 @@ export function Footer(): JSX.Element {
     <footer className="py-8">
       <Container>
         <p className="text-center text-gray-500">
-          © {currentYear} SuperAPI Private Limited. All rights reserved.
+          © {currentYear} SuperAPI Inc. All rights reserved.
         </p>
       </Container>
     </footer>

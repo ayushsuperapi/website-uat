@@ -1,29 +1,18 @@
 "use client";
 
-import { JSX, useState } from "react";
+import { JSX } from "react";
 import Image from "next/image";
 import { FadeInSection } from "../ui/fadeInSection";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
 import type { HeroSectionProps } from "@/types/sections";
-import { Dialog } from "../ui/dialog";
-import { ContactForm } from "../contactForm";
 
 export function HeroSection({
   title = "10x faster APIs.",
   subtitle = "45% lower costs.\nZero engineering effort.",
-  description = "SuperAPI is a plug-and-play API caching solution with automatic cache invalidation – built for dynamic APIs and fast-growing teams.",
+  description = "SuperAPI is a plug-and-play API cache with automatic cache invalidation – built for dynamic APIs and fast-growing teams.",
   ctaText = "Try Live Playground",
 }: HeroSectionProps): JSX.Element {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-
-  const openDialog = () => {
-    setIsDialogOpen(true);
-  };
-
-  const closeDialog = () => {
-    setIsDialogOpen(false);
-  };
   const subtitleLines = subtitle.split("\n");
 
   return (
@@ -38,7 +27,12 @@ export function HeroSection({
           ))}
           <p className="text-xl mb-10">{description}</p>
           <div className="flex flex-col sm:flex-row gap-4 mt-10">
-            <Button onClick={openDialog} size="md" variant="primary">
+            <Button 
+              href="https://calendly.com/super-api/hello-from-super-api"
+              openInNewTab={true}
+              size="md" 
+              variant="primary"
+            >
               Talk to us
             </Button>
             <Button
@@ -72,10 +66,6 @@ export function HeroSection({
           <p className="text-white-400">Backed by Y Combinator</p>
         </div>
       </FadeInSection>
-
-      <Dialog isOpen={isDialogOpen} onClose={closeDialog} title="Contact Us">
-        <ContactForm onClose={closeDialog} />
-      </Dialog>
     </Section>
   );
 }

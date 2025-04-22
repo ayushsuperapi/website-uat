@@ -10,20 +10,24 @@ import { JSX } from 'react';
 const defaultSteps: Step[] = [
   {
     number: "1.",
-    description: "Connect your API. Plug SuperAPI in front of existing REST or GraphQL APIs."
+    description: "Plug & Play - Install in under 30 minutes with no code changes. SuperAPI sits in front of your APIs as a gateway."
   },
   {
     number: "2.",
-    description: "Automatic caching and invalidation. Fresh data always, no manual rules."
+    description: "Smart Caching - We cache API responses automatically and serve them in milliseconds. Misses go to your origin."
   },
   {
     number: "3.",
-    description: "Deploy anywhere, in your cloud or regionally."
+    description: "Auto Invalidation - SuperAPI listens to your database via CDC and invalidates only the affected caches."
+  },
+  {
+    number: "4.",
+    description: "Scales Effortlessly - Designed to handle millions of requests with consistent low latency."
   }
 ];
 
 export function HowItWorksSection({
-  title = "How it works",
+  title = "How SuperAPI works",
   steps = defaultSteps,
 }: HowItWorksSectionProps): JSX.Element {
   return (

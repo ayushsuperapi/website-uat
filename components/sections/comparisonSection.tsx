@@ -1,26 +1,26 @@
 'use client';
 
-import { JSX, useState } from 'react';
+import { JSX } from 'react';
 import { FadeInSection } from '../ui/fadeInSection';
 import { Section } from '@/components/ui/section';
 import { Button } from '@/components/ui/button';
 import type { ComparisonSectionProps, ComparisonItem } from '@/types/sections';
-import { Dialog } from '../ui/dialog';
-import { ContactForm } from '../contactForm';
 import { Card } from '../ui/card';
 
 const defaultOldWayItems: ComparisonItem[] = [
-  { text: "Months of refactoring & query optimization" },
-  { text: "Complex cache invalidation logic" },
-  { text: "Expensive and limited Redis/Memcache" },
-  { text: "Static caching with Cloudflare/TTL" }
+  { text: "APIs slow down under load" },
+  { text: "You build and maintain your own cache logic" },
+  { text: "Developers manage complex invalidation logic" },
+  { text: "High latency = poor UX" },
+  { text: "More infra needed to handle spikes" }
 ];
 
 const defaultNewWayItems: ComparisonItem[] = [
-  { text: "Integrate in 30 minutes — no code changes" },
-  { text: "Automatic cache invalidation" },
-  { text: "More powerful, 20% of the cost" },
-  { text: "Dynamic, smart caching — no stale data" }
+  { text: "API responses in <10ms on cache hits" },
+  { text: "Plug-and-play setup — no code changes" },
+  { text: "Automatic, data-aware cache invalidation" },
+  { text: "Lower infra costs, less backend load" },
+  { text: "Scales from 10M to 1B+ requests with ease" }
 ];
 
 export function ComparisonSection({
@@ -29,16 +29,7 @@ export function ComparisonSection({
   oldWayItems = defaultOldWayItems,
   newWayItems = defaultNewWayItems,
   ctaText = "Try Live Playground"
-}: ComparisonSectionProps): JSX.Element {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  
-  const openDialog = () => {
-    setIsDialogOpen(true);
-  };
-  
-  const closeDialog = () => {
-    setIsDialogOpen(false);
-  };
+}: ComparisonSectionProps): JSX.Element { 
 
   return (
     <Section>
@@ -72,7 +63,11 @@ export function ComparisonSection({
           </div>
             
             <div className="flex flex-col sm:flex-row gap-4 mt-10">
-              <Button onClick={openDialog} variant="primary">
+              <Button 
+                href="https://calendly.com/super-api/hello-from-super-api"
+                openInNewTab={true}
+                variant="primary"
+              >
                 Talk to us
               </Button>
               <Button 
@@ -86,10 +81,6 @@ export function ComparisonSection({
           </FadeInSection>
         </Card>
       </div>
-
-      <Dialog isOpen={isDialogOpen} onClose={closeDialog} title="Contact Us">
-        <ContactForm onClose={closeDialog} />
-      </Dialog>
     </Section>
   );
 }

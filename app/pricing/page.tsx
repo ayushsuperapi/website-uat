@@ -107,7 +107,7 @@ export default function PricingPage() {
           </Card>
 
           {/* Enterprise Plan */}
-          <Card className="p-8 border border-[#2563EB] relative overflow-hidden">
+          <Card className="p-8">
             <div className="absolute inset-0 rounded-lg pointer-events-none"></div>
             <FadeInSection delay={200}>
               <h2 className="text-2xl font-bold mb-8">Custom</h2>

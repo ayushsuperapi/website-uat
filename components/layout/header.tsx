@@ -6,11 +6,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
-import { Dialog } from '@/components/ui/dialog';
-import { ContactForm } from '../contactForm';
 
 export function Header(): JSX.Element {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -36,15 +33,6 @@ export function Header(): JSX.Element {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
-  const openDialog = () => {
-    setIsMobileMenuOpen(false);
-    setIsDialogOpen(true);
-  };
-
-  const closeDialog = () => {
-    setIsDialogOpen(false);
-  };
-
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -63,21 +51,21 @@ export function Header(): JSX.Element {
 
   return (
     <>
-      <header className={`py-6 sticky top-0 z-[60] bg-[#1E1E1E] ${isScrolled ? 'border-b border-[#333333]' : ''}`}>
-        <Container className="flex justify-between items-center">
-          <div className="flex items-center gap-2">
+      <header className={`py-3 sticky top-0 z-[60] bg-[#1E1E1E] ${isScrolled ? 'border-b border-[#333333]' : ''}`}>
+        <Container className="flex justify-between items-center px-6" maxWidth="max-w-[1600px]">
+          <div className="flex items-center gap-1">
             <Link href="/">
               <Image 
                 src="/website_logo.svg" 
                 alt="SuperAPI Logo" 
-                width={180} 
-                height={180} 
+                width={160} 
+                height={160} 
                 priority
                 className="hover:opacity-90 transition-opacity"
               />
             </Link>
             {/* Desktop Navigation */}
-            <nav className="ml-4 hidden md:flex gap-6">
+            <nav className="ml-3 hidden md:flex gap-6">
               <a 
                 href="https://platform.superapi.cloud/docs" 
                 target="_blank"
@@ -100,7 +88,8 @@ export function Header(): JSX.Element {
           {/* Desktop Talk to us button */}
           <div className="hidden md:block">
             <Button 
-              onClick={openDialog}
+              href="https://calendly.com/super-api/hello-from-super-api"
+              openInNewTab={true}
               size="md"
               variant="primary"
             >
@@ -176,7 +165,8 @@ export function Header(): JSX.Element {
                 Pricing
               </Link>
               <Button 
-                onClick={openDialog}
+                href="https://calendly.com/super-api/hello-from-super-api"
+                openInNewTab={true}
                 size="md"
                 variant="primary"
                 className="mt-4"
@@ -195,14 +185,6 @@ export function Header(): JSX.Element {
           />
         )}
       </header>
-
-      <Dialog 
-        isOpen={isDialogOpen} 
-        onClose={closeDialog}
-        title="Talk to us"
-      >
-        <ContactForm onClose={closeDialog} />
-      </Dialog>
     </>
   );
 }

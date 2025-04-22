@@ -31,6 +31,7 @@ export interface ContainerProps {
   children: ReactNode;
   className?: string;
   as?: keyof JSX.IntrinsicElements;
+  maxWidth?: string;
 }
 
 export interface SectionProps {

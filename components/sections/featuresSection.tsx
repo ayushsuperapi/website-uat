@@ -9,23 +9,23 @@ import { JSX } from 'react';
 const defaultFeatures: Feature[] = [
   {
     icon: "./trend-up.svg",
-    title: "10x faster API responses",
-    description: "By caching intelligently, SuperAPI offloads expensive database queries, saving real infrastructure costs."
+    title: "10x Faster APIs",
+    description: "SuperAPI accelerates your API responses by caching dynamic data intelligently — reducing latency from hundreds of milliseconds to under 10ms."
   },
   {
     icon: "./check.svg",
     title: "Automatic cache invalidation",
-    description: "Smart invalidation logic ensures users always get the freshest data without engineering effort."
+    description: "SuperAPI monitors your database in real-time using CDC (Change Data Capture) to keep caches always fresh — no manual rules or TTLs."
   },
   {
     icon: "./star.svg",
-    title: "Upto 45% reduction in database costs",
-    description: "By caching intelligently, SuperAPI offloads expensive database queries, saving real infrastructure costs."
+    title: "Zero Code Changes",
+    description: "No complex setup or code changes. SuperAPI plugs into your existing stack and starts caching in less than 30 minutes."
   },
   {
     icon: "./heart.svg",
-    title: "Go live in 30 mins – zero code changes",
-    description: "Simple plug-and-play integration that doesn't require refactoring existing APIs."
+    title: "Built for Scale",
+    description: "From 10M to 1B+ requests per month — SuperAPI handles massive traffic with ease, backed by isolated infra and CDN-grade performance."
   }
 ];
 

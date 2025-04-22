@@ -4,11 +4,12 @@ import type { ContainerProps } from '@/types/ui';
 export function Container({
   children,
   className = '',
-  as = 'div'
+  as = 'div',
+  maxWidth = 'container'
 }: ContainerProps): JSX.Element {
   return createElement(
     as,
-    { className: `container mx-auto px-4 ${className}` },
+    { className: `${maxWidth} mx-auto px-4 ${className}` },
     children
   );
 }
