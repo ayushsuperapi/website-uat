@@ -28,7 +28,7 @@ export function ComparisonSection({
   newWayTitle = "With SuperAPI",
   oldWayItems = defaultOldWayItems,
   newWayItems = defaultNewWayItems,
-  ctaText = "Try Live Playground"
+  ctaText = "Try Demo"
 }: ComparisonSectionProps): JSX.Element { 
 
   return (

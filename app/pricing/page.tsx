@@ -6,13 +6,14 @@ import { Card } from '@/components/ui/card';
 import { FadeInSection } from '@/components/ui/fadeInSection';
 import { Dialog } from '@/components/ui/dialog';
 import { ContactForm } from '@/components/contactForm';
+import { Button } from '@/components/ui/button';
 
 export default function PricingPage() {
-  const [requestsM, setRequestsM] = useState(25); // default 25M
-  const [payloadSize, setPayloadSize] = useState(40); // in KB
+  const [requestsM, setRequestsM] = useState<string>("25"); // default 25M
+  const [payloadSize, setPayloadSize] = useState<string>("40"); // in KB
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  const requests = requestsM * 1_000_000;
+  const requests = parseFloat(requestsM) * 1_000_000 || 0;
   const toGB = (reqs: number, sizeKB: number): number => (reqs * sizeKB) / (1024 * 1024);
 
   const basePrice = 249;
@@ -20,9 +21,23 @@ export default function PricingPage() {
   const includedGB = 1000; // simplified to 1000 GB
 
   const extraRequests = Math.max(0, requests - includedRequests);
-  const extraGB = Math.max(0, toGB(requests, payloadSize) - includedGB);
+  const extraGB = Math.max(0, toGB(requests, parseFloat(payloadSize) || 0) - includedGB);
 
   const superAPIPrice = basePrice + (extraRequests / 1_000_000) * 10 + extraGB * 0.09;
+
+  const handleRequestsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (value === "" || /^\d*\.?\d*$/.test(value)) {
+      setRequestsM(value);
+    }
+  };
+
+  const handlePayloadChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (value === "" || /^\d*\.?\d*$/.test(value)) {
+      setPayloadSize(value);
+    }
+  };
 
   const closeDialog = () => {
     setIsDialogOpen(false);
@@ -31,7 +46,6 @@ export default function PricingPage() {
   return (
     <Section>
       <div className="max-w-4xl mx-auto space-y-16">
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Standard Plan */}
           <Card className="p-8">
@@ -66,19 +80,19 @@ export default function PricingPage() {
 
                 {/* Calculator */}
                 <div className="pt-6 border-t border-[#333333]">
-                  <h3 className="text-lg font-semibold mb-4">Calculate Your Cost</h3>
+                  <h3 className="text-lg font-semibold mb-4">Calculate your monthly price</h3>
                   <div className="space-y-4">
                     <div>
                       <label className="block mb-2 text-sm font-medium">
                         Monthly API Requests (in millions)
                       </label>
                       <input
-                        type="number"
-                        className="w-full px-4 py-3 bg-[#1E1E1E] border border-[#333333] rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                        type="text"
+                        inputMode="decimal"
+                        className="w-full px-4 py-3 bg-[#1E1E1E] border border-[#333333] rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         value={requestsM}
-                        onChange={(e) => setRequestsM(Number(e.target.value))}
-                        min="0"
-                        step="1"
+                        onChange={handleRequestsChange}
+                        placeholder="0"
                       />
                     </div>
 
@@ -87,18 +101,29 @@ export default function PricingPage() {
                         Average Payload Size (KB)
                       </label>
                       <input
-                        type="number"
-                        className="w-full px-4 py-3 bg-[#1E1E1E] border border-[#333333] rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                        type="text"
+                        inputMode="decimal"
+                        className="w-full px-4 py-3 bg-[#1E1E1E] border border-[#333333] rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         value={payloadSize}
-                        onChange={(e) => setPayloadSize(Number(e.target.value))}
-                        min="0"
-                        step="1"
+                        onChange={handlePayloadChange}
+                        placeholder="0"
                       />
                     </div>
 
                     <div className="mt-6 p-4 bg-gradient-to-br from-[#1E1E1E] to-[#2a2a2a] rounded-lg">
-                      <h3 className="font-semibold mb-2">Estimated Monthly Cost</h3>
+                      <h3 className="font-semibold mb-2">Estimated monthly price</h3>
                       <p className="text-3xl font-bold">${superAPIPrice.toFixed(2)}</p>
+                    </div>
+
+                    <div className="mt-6">
+                      <Button 
+                        href="https://calendly.com/super-api/hello-from-super-api"
+                        openInNewTab={true}
+                        variant="primary"
+                        className="w-full"
+                      >
+                        Talk to us
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -110,7 +135,7 @@ export default function PricingPage() {
           <Card className="p-8">
             <div className="absolute inset-0 rounded-lg pointer-events-none"></div>
             <FadeInSection delay={200}>
-              <h2 className="text-2xl font-bold mb-8">Custom</h2>
+              <h2 className="text-2xl font-bold mb-8">Enterprise Plan</h2>
               <div className="space-y-6">
                 <div>
                   <p className="text-lg text-gray-300 mb-6">Enterprise-ready migration & pricing strategies.</p>

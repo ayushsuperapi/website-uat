@@ -11,7 +11,7 @@ export function HeroSection({
   title = "10x faster APIs.",
   subtitle = "45% lower costs.\nZero engineering effort.",
   description = "SuperAPI is a plug-and-play API cache with automatic cache invalidation – built for dynamic APIs and fast-growing teams.",
-  ctaText = "Try Live Playground",
+  ctaText = "Try Demo",
 }: HeroSectionProps): JSX.Element {
   const subtitleLines = subtitle.split("\n");
 
