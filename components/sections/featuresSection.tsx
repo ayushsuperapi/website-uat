@@ -8,7 +8,7 @@ import { JSX } from 'react';
 
 const defaultFeatures: Feature[] = [
   {
-    icon: "./trend-up.svg",
+    icon: "./fast.svg",
     title: "10x Faster APIs",
     description: "SuperAPI accelerates your API responses by caching dynamic data intelligently — reducing latency from hundreds of milliseconds to under 10ms."
   },

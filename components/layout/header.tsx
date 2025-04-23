@@ -52,7 +52,7 @@ export function Header(): JSX.Element {
   return (
     <>
       <header className={`py-3 sticky top-0 z-[60] bg-[#1E1E1E] ${isScrolled ? 'border-b border-[#333333]' : ''}`}>
-        <Container className="flex justify-between items-center px-6" maxWidth="max-w-[1600px]">
+        <Container className="flex justify-between items-center px-6" maxWidth="max-w-full md:max-w-[1600px] xl:max-w-full">
           <div className="flex items-center gap-1">
             <Link href="/">
               <Image 
