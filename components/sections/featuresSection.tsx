@@ -13,17 +13,17 @@ const defaultFeatures: Feature[] = [
     description: "SuperAPI accelerates your API responses by caching dynamic data intelligently — reducing latency from hundreds of milliseconds to under 10ms."
   },
   {
-    icon: "./check.svg",
+    icon: "./clock.svg",
     title: "Automatic cache invalidation",
     description: "SuperAPI monitors your database in real-time using CDC (Change Data Capture) to keep caches always fresh — no manual rules or TTLs."
   },
   {
-    icon: "./star.svg",
+    icon: "./plug.svg",
     title: "Zero Code Changes",
     description: "No complex setup or code changes. SuperAPI plugs into your existing stack and starts caching in less than 30 minutes."
   },
   {
-    icon: "./heart.svg",
+    icon: "./scale.svg",
     title: "Built for Scale",
     description: "From 10M to 1B+ requests per month — SuperAPI handles massive traffic with ease, backed by isolated infra and CDN-grade performance."
   }
