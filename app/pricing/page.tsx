@@ -16,14 +16,14 @@ export default function PricingPage() {
   const requests = parseFloat(requestsM) * 1_000_000 || 0;
   const toGB = (reqs: number, sizeKB: number): number => (reqs * sizeKB) / (1024 * 1024);
 
-  const basePrice = 249;
+  const basePrice = 449;
   const includedRequests = 25000000;
   const includedGB = 1000; // simplified to 1000 GB
 
   const extraRequests = Math.max(0, requests - includedRequests);
   const extraGB = Math.max(0, toGB(requests, parseFloat(payloadSize) || 0) - includedGB);
 
-  const superAPIPrice = basePrice + (extraRequests / 1_000_000) * 10 + extraGB * 0.09;
+  const superAPIPrice = basePrice + (extraRequests / 1_000_000) * 12 + extraGB * 0.09;
 
   const handleRequestsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -53,7 +53,7 @@ export default function PricingPage() {
               <h2 className="text-2xl font-bold mb-8">Standard Plan</h2>
               <div className="space-y-6">
                 <div>
-                  <div className="text-3xl font-bold mb-4">$249<span className="text-base font-normal">/month</span></div>
+                  <div className="text-3xl font-bold mb-4">$449<span className="text-base font-normal">/month</span></div>
                   <div className="space-y-2">
                     <p className="flex items-center gap-2">
                       <span className="text-green-500">✓</span>
@@ -65,7 +65,7 @@ export default function PricingPage() {
                     </p>
                     <p className="flex items-center gap-2">
                       <span className="text-green-500">✓</span>
-                      $10 per additional 1M requests
+                      $12 per additional 1M requests
                     </p>
                     <p className="flex items-center gap-2">
                       <span className="text-green-500">✓</span>
