@@ -1,7 +1,17 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: '/dashboard/:path*',
+        destination: 'https://platform.superapi.cloud/app/:path*'
+      },
+      {
+        source: '/api/:path*',
+        destination: 'https://platform.superapi.cloud/app/:path*'
+      }
+    ];
+  }
 };
 
-export default nextConfig;
+module.exports = nextConfig;
