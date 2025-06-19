@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/dashboard",
+      "destination": "https://platform.superapi.cloud/app"
+    },
+    {
       "source": "/dashboard/(.*)",
       "destination": "https://platform.superapi.cloud/app/$1"
     },
