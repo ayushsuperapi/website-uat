@@ -2,59 +2,19 @@
   "rewrites": [
     {
       "source": "/dashboard",
-      "destination": "https://platform.superapi.cloud/app",
-      "headers": [
-        {
-          "key": "x-forwarded-host",
-          "value": "uat.trysuperapi.com"
-        },
-        {
-          "key": "origin",
-          "value": "https://uat.trysuperapi.com"
-        }
-      ]
+      "destination": "https://platform.superapi.cloud/app"
     },
     {
       "source": "/dashboard/(.*)",
-      "destination": "https://platform.superapi.cloud/app/$1",
-      "headers": [
-        {
-          "key": "x-forwarded-host",
-          "value": "uat.trysuperapi.com"
-        },
-        {
-          "key": "origin",
-          "value": "https://uat.trysuperapi.com"
-        }
-      ]
+      "destination": "https://platform.superapi.cloud/app/$1"
     },
     {
       "source": "/api/(.*)",
-      "destination": "https://platform.superapi.cloud/app/$1",
-      "headers": [
-        {
-          "key": "x-forwarded-host",
-          "value": "uat.trysuperapi.com"
-        },
-        {
-          "key": "origin",
-          "value": "https://uat.trysuperapi.com"
-        }
-      ]
+      "destination": "https://platform.superapi.cloud/app/$1"
     },
     {
       "source": "/app/(.*)",
-      "destination": "https://platform.superapi.cloud/app/$1",
-      "headers": [
-        {
-          "key": "x-forwarded-host",
-          "value": "uat.trysuperapi.com"
-        },
-        {
-          "key": "origin",
-          "value": "https://uat.trysuperapi.com"
-        }
-      ]
+      "destination": "https://platform.superapi.cloud/app/$1"
     }
   ]
 } 

@@ -1,7 +1,25 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Rewrites and redirects are handled in vercel.json for Vercel deployment
-  // For local development, use the custom server (server.js)
+  async rewrites() {
+    return [
+      {
+        source: '/dashboard',
+        destination: 'https://platform.superapi.cloud/app',
+      },
+      {
+        source: '/dashboard/:path*',
+        destination: 'https://platform.superapi.cloud/app/:path*',
+      },
+      {
+        source: '/api/:path*',
+        destination: 'https://platform.superapi.cloud/app/:path*',
+      },
+      {
+        source: '/app/:path*',
+        destination: 'https://platform.superapi.cloud/app/:path*',
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
