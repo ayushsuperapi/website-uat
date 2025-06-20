@@ -17,6 +17,10 @@ const nextConfig = {
       {
         source: '/api/:path*',
         destination: 'https://platform.superapi.cloud/app/:path*',
+      },
+      {
+        source: '/app/applications/:path*',
+        destination: 'https://platform.superapi.cloud/app/applications/:path*',
       }
     ];
   }
