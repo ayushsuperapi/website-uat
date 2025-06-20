@@ -15,28 +15,19 @@ const nextConfig = {
         destination: 'https://platform.superapi.cloud/app/:path*',
       },
       {
-        source: '/app/:path*.rsc',
-        destination: 'https://platform.superapi.cloud/app/:path*.rsc',
+        source: '/app',
+        destination: 'https://platform.superapi.cloud/app/applications',
       },
       {
         source: '/app/:path*',
         destination: 'https://platform.superapi.cloud/app/:path*',
+      },
+      {
+        source: '/api/:path*',
+        destination: 'https://platform.superapi.cloud/app/:path*',
       }
     ];
-  },
-  async headers() {
-    return [
-      {
-        source: '/app/:path*.rsc',
-        headers: [
-          {
-            key: 'Content-Type',
-            value: 'text/x-component',
-          },
-        ],
-      },
-    ];
-  },
+  }
 };
 
 module.exports = nextConfig;
