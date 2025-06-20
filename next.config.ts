@@ -1,14 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: '/app',
-        destination: '/app/applications',
-        permanent: false,
-      }
-    ];
-  },
   async rewrites() {
     return [
       {
@@ -18,10 +9,6 @@ const nextConfig = {
       {
         source: '/dashboard/:path*',
         destination: 'https://platform.superapi.cloud/app/:path*',
-      },
-      {
-        source: '/app',
-        destination: 'https://platform.superapi.cloud/app/applications',
       },
       {
         source: '/app/:path*',
