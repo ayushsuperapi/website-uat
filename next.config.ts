@@ -20,11 +20,11 @@ const nextConfig = {
           destination: 'https://platform.superapi.cloud/docs/:path*',
         },
         {
-          source: '/api',
+          source: '/app',
           destination: 'https://platform.superapi.cloud/app',
         },
         {
-          source: '/api/:path*',
+          source: '/app/:path*',
           destination: 'https://platform.superapi.cloud/app/:path*',
         },
         {
