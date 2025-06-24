@@ -3,7 +3,7 @@
 const nextConfig = {
   async rewrites() {
     return {
-      beforeFiles: [
+      afterFiles: [
         {
           source: '/dashboard',
           destination: 'https://platform.superapi.cloud/app',
