@@ -1,30 +1,51 @@
+/* eslint-disable */
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Remove external rewrites - now handled by vercel.json
+  async rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: '/dashboard',
+          destination: 'https://platform.superapi.cloud/app',
+        },
+        {
+          source: '/dashboard/:path*',
+          destination: 'https://platform.superapi.cloud/app/:path*',
+        },
+        {
+          source: '/docs',
+          destination: 'https://platform.superapi.cloud/docs',
+        },
+        {
+          source: '/docs/:path*',
+          destination: 'https://platform.superapi.cloud/docs/:path*',
+        },
+        {
+          source: '/app',
+          destination: 'https://platform.superapi.cloud/app',
+        },
+        {
+          source: '/app/:path*',
+          destination: 'https://platform.superapi.cloud/app/:path*',
+        },
+        {
+          source: '/playground',
+          destination: 'https://playground.trysuperapi.com/',
+        },
+      ],
+    };
+  },
   async headers() {
     return [
-      {
-        // Apply streaming headers only to internal routes
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'X-Accel-Buffering',
-            value: 'no',
-          },
-          {
-            key: 'Transfer-Encoding',
-            value: 'chunked',
-          },
-          {
-            key: 'Connection',
-            value: 'keep-alive',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'no-cache',
-          },
-        ],
-      },
+        {
+            source: '/(.*)',
+            headers: [
+                {
+                    key: 'X-Accel-Buffering',
+                    value: 'no',
+                },
+            ],
+        },
     ];
   },
 };
