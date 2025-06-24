@@ -1,20 +1,25 @@
 {
-  "rewrites": [
-    {
-      "source": "/dashboard",
-      "destination": "https://platform.superapi.cloud/app"
+    "functions": {
+      "pages/**/*.js": {
+        "maxDuration": 30
+      },
+      "app/**/*.js": {
+        "maxDuration": 30
+      }
     },
-    {
-      "source": "/dashboard/(.*)",
-      "destination": "https://platform.superapi.cloud/app/$1"
-    },
-    {
-      "source": "/api/(.*)",
-      "destination": "https://platform.superapi.cloud/app/$1"
-    },
-    {
-      "source": "/app/(.*)",
-      "destination": "https://platform.superapi.cloud/app/$1"
-    }
-  ]
-} 
+    "headers": [
+      {
+        "source": "/app/(.*)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          },
+          {
+            "key": "Connection",
+            "value": "keep-alive"
+          }
+        ]
+      }
+    ]
+  }
