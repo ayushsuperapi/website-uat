@@ -3,7 +3,7 @@
 const nextConfig = {
   async rewrites() {
     return {
-      afterFiles: [
+      beforeFiles: [
         {
           source: '/dashboard',
           destination: 'https://platform.superapi.cloud/app',
@@ -43,7 +43,16 @@ const nextConfig = {
                 {
                     key: 'X-Accel-Buffering',
                     value: 'no',
-                }
+                },
+                {
+                  key: 'Cache-Control',
+                  value: 'no-cache, no-store, must-revalidate',
+                },
+                {
+                  key: 'Connection',
+                  value: 'keep-alive',
+                },
+                
             ],
         },
     ];
