@@ -1,3 +1,6 @@
+/* eslint-disable */
+const path = require('path')
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async rewrites() {
