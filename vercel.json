@@ -7,6 +7,36 @@
         "maxDuration": 30
       }
     },
+    "rewrites": [
+      {
+        "source": "/dashboard",
+        "destination": "https://platform.superapi.cloud/app"
+      },
+      {
+        "source": "/dashboard/:path*",
+        "destination": "https://platform.superapi.cloud/app/:path*"
+      },
+      {
+        "source": "/docs",
+        "destination": "https://platform.superapi.cloud/docs"
+      },
+      {
+        "source": "/docs/:path*",
+        "destination": "https://platform.superapi.cloud/docs/:path*"
+      },
+      {
+        "source": "/app",
+        "destination": "https://platform.superapi.cloud/app"
+      },
+      {
+        "source": "/app/:path*",
+        "destination": "https://platform.superapi.cloud/app/:path*"
+      },
+      {
+        "source": "/Code Playground",
+        "destination": "https://Code Playground.trysuperapi.com/"
+      }
+    ],
     "headers": [
       {
         "source": "/(.*)",
@@ -16,7 +46,19 @@
             "value": "no"
           },
           {
-            "key": "X-Vercel-No-Cache",
+            "key": "Transfer-Encoding",
+            "value": "chunked"
+          },
+          {
+            "key": "Connection",
+            "value": "keep-alive"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          },
+          {
+            "key": "x-vercel-enable-rewrite-caching",
             "value": "1"
           }
         ]

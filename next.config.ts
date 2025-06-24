@@ -1,42 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async rewrites() {
-    return {
-      beforeFiles: [
-        {
-          source: '/dashboard',
-          destination: 'https://4e28-103-163-65-90.ngrok-free.app/app',
-        },
-        {
-          source: '/dashboard/:path*',
-          destination: 'https://4e28-103-163-65-90.ngrok-free.app/app/:path*',
-        },
-        {
-          source: '/docs',
-          destination: 'https://4e28-103-163-65-90.ngrok-free.app/docs',
-        },
-        {
-          source: '/docs/:path*',
-          destination: 'https://4e28-103-163-65-90.ngrok-free.app/docs/:path*',
-        },
-        {
-          source: '/app',
-          destination: 'https://4e28-103-163-65-90.ngrok-free.app/app',
-        },
-        {
-          source: '/app/:path*',
-          destination: 'https://4e28-103-163-65-90.ngrok-free.app/app/:path*',
-        },
-        {
-          source: '/playground',
-          destination: 'https://4e28-103-163-65-90.ngrok-free.app/playground',
-        },
-      ],
-    };
-  },
+  // Remove external rewrites - now handled by vercel.json
   async headers() {
     return [
       {
+        // Apply streaming headers only to internal routes
         source: '/(.*)',
         headers: [
           {
@@ -51,7 +19,6 @@ const nextConfig = {
             key: 'Connection',
             value: 'keep-alive',
           },
-          // Don't cache streaming responses
           {
             key: 'Cache-Control',
             value: 'no-cache',
