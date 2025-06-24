@@ -5,31 +5,31 @@ const nextConfig = {
       beforeFiles: [
         {
           source: '/dashboard',
-          destination: 'https://platform.superapi.cloud/app',
+          destination: 'https://4e28-103-163-65-90.ngrok-free.app/app',
         },
         {
           source: '/dashboard/:path*',
-          destination: 'https://platform.superapi.cloud/app/:path*',
+          destination: 'https://4e28-103-163-65-90.ngrok-free.app/app/:path*',
         },
         {
           source: '/docs',
-          destination: 'https://platform.superapi.cloud/docs',
+          destination: 'https://4e28-103-163-65-90.ngrok-free.app/docs',
         },
         {
           source: '/docs/:path*',
-          destination: 'https://platform.superapi.cloud/docs/:path*',
+          destination: 'https://4e28-103-163-65-90.ngrok-free.app/docs/:path*',
         },
         {
           source: '/app',
-          destination: 'https://platform.superapi.cloud/app',
+          destination: 'https://4e28-103-163-65-90.ngrok-free.app/app',
         },
         {
           source: '/app/:path*',
-          destination: 'https://platform.superapi.cloud/app/:path*',
+          destination: 'https://4e28-103-163-65-90.ngrok-free.app/app/:path*',
         },
         {
           source: '/playground',
-          destination: 'https://playground.trysuperapi.com/',
+          destination: 'https://4e28-103-163-65-90.ngrok-free.app/playground',
         },
       ],
     };
