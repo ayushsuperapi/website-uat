@@ -43,20 +43,11 @@ const nextConfig = {
                 {
                     key: 'X-Accel-Buffering',
                     value: 'no',
-                },
-                {
-                  key: 'Content-Encoding',
-                  value: 'identity',
-                },
-                {
-                  key: 'X-Vercel-No-Compression',
-                  value: '1',
-                },
+                }
             ],
         },
     ];
   },
-  compress: false,
 };
 
 module.exports = nextConfig;
