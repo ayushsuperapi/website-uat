@@ -36,15 +36,28 @@ const nextConfig = {
   },
   async headers() {
     return [
-        {
-            source: '/(.*)',
-            headers: [
-                {
-                    key: 'X-Accel-Buffering',
-                    value: 'no',
-                },
-            ],
-        },
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Accel-Buffering',
+            value: 'no',
+          },
+          {
+            key: 'Transfer-Encoding',
+            value: 'chunked',
+          },
+          {
+            key: 'Connection',
+            value: 'keep-alive',
+          },
+          // Don't cache streaming responses
+          {
+            key: 'Cache-Control',
+            value: 'no-cache',
+          },
+        ],
+      },
     ];
   },
 };

@@ -11,17 +11,13 @@
       {
         "source": "/(.*)",
         "headers": [
-            {
-                "key": "X-Accel-Buffering",
-                "value": "no"
-              },
           {
-            "key": "Cache-Control",
-            "value": "no-cache, no-store, must-revalidate"
+            "key": "X-Accel-Buffering",
+            "value": "no"
           },
           {
-            "key": "Connection",
-            "value": "keep-alive"
+            "key": "X-Vercel-No-Cache",
+            "value": "1"
           }
         ]
       }
