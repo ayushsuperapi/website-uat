@@ -9,7 +9,7 @@
     },
     "headers": [
       {
-        "source": "/app/(.*)",
+        "source": "/(.*)",
         "headers": [
             {
                 "key": "X-Accel-Buffering",

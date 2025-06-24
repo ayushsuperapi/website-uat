@@ -1,6 +1,3 @@
-/* eslint-disable */
-const path = require('path')
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async rewrites() {
@@ -40,7 +37,7 @@ const nextConfig = {
   async headers() {
     return [
         {
-            source: '/:path*{/}?',
+            source: '/(.*)',
             headers: [
                 {
                     key: 'X-Accel-Buffering',
